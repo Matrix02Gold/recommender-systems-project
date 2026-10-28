@@ -218,3 +218,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+.venv/
+*.pyc
+
+# MovieLens dataset
+data/ml-1m/
+data/ml-1m.zip
+

@@ -101,7 +101,3 @@ The positive-rating popularity baseline performs best on the ranking accuracy me
 The train/validation/test split is based on interaction timestamps; there is no random sampling in the current Part 1 workflow. Direct Python dependencies are version-pinned in `requirements.txt`.
 
 ChatGPT was used for conceptual explanations, debugging support, code cleanup, and drafting documentation. The code and reported results were reviewed and executed as part of this individual project.
-
-## Author
-
-Youssef Zougari-Belkhayat.

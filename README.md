@@ -104,4 +104,4 @@ ChatGPT was used for conceptual explanations, debugging support, code cleanup, a
 
 ## Author
 
-Youssef Zougari-Belkhayat — individual project.
+Youssef Zougari-Belkhayat.

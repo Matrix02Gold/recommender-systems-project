@@ -53,7 +53,7 @@ The script:
 
 The evaluation considers users with at least **five training ratings** and at least **one relevant held-out rating** (4 or 5 stars). It excludes already-rated training movies and reports **Precision@10, Recall@10, NDCG@10 and catalogue coverage**.
 
-The script prints numerical results to the terminal. It **does not currently write the results template spreadsheet or a results CSV automatically**.
+The script prints numerical results to the terminal.
 
 ## Project structure
 

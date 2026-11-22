@@ -158,7 +158,7 @@ These sparsity values use the same **896 eligible test users** at each training-
 - The **random seed is 42** for training-data subsampling and bootstrap confidence intervals.
 - The bootstrap calculation uses **1,000 samples**.
 - All paths in the run commands are relative to the project folder.
-- `run_all.py` prints its numerical results to the terminal and saves data-exploration figures, but **does not automatically export `results.csv` or fill the course Excel template**. The required results file and completed spreadsheet must be added separately when preparing the submission.
+- `run_all.py` prints its numerical results to the terminal and saves data-exploration figures, but **does not automatically export `results.csv` or fill the course Excel template**. The required results file and completed spreadsheet were added separately when preparing the submission.
 
 **Current limitation:** The popularity, content-based, user-kNN, and hybrid recommenders can rank the full movie catalogue, but the current **item-kNN** implementation only returns training movies with positive similarity support. Its smaller candidate set means the models are not yet fully comparable under a strict full-catalogue evaluation. Cold-start users are also excluded from the ranking evaluation.
 

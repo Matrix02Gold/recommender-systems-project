@@ -1,0 +1,68 @@
+part,experiment,split,model,setting,subgroup_dimension,subgroup,training_percent,users,precision_at_10,recall_at_10,ndcg_at_10,catalogue_coverage,ndcg_ci_lower,ndcg_ci_upper,ndcg_difference,self_implemented,selected,random_seed,notes
+1,final_test,test,Most Popular (All),All train ratings; top 10,,,,986,0.1731,0.0482,0.186,0.035,0.1721,0.2005,,No,,42 (bootstrap),Deterministic; 986 test users
+1,final_test,test,Most Popular (Positive),Positive rating >=4; top 10,,,,986,0.1815,0.0533,0.1969,0.0332,0.1827,0.2116,,No,,42 (bootstrap),Strongest ranking accuracy; 986 users
+1,final_test,test,Item-kNN,Adjusted cosine; k=10; shrinkage=5,,,,986,0.1657,0.0498,0.1807,0.18,0.1654,0.195,,No,,42 (bootstrap),Training-observed candidates only; 986 users
+2,final_test,test,Content-based,Genres + decades; year weight=0.5,,,,986,0.0244,0.0077,0.0253,0.4224,0.0205,0.0306,,Yes,,42 (bootstrap),Self-implemented profile matching; 986 users
+2,final_test,test,User-kNN,Cosine similarity; k=10,,,,986,0.062,0.0164,0.0679,0.3477,0.0604,0.0767,,No,,42 (bootstrap),Popularity fallback; 986 users
+2,final_test,test,Hybrid,Content + positive pop; alpha=0.25,,,,986,0.1262,0.0345,0.1386,0.0945,0.1254,0.1504,,No,,42 (bootstrap),Rank blending; 986 users
+1,validation_tuning,validation,Item-kNN,Cosine; k=5; shrinkage=1,,,,490,0.0722,0.0354,0.0844,0.2583,,,,,No,,
+1,validation_tuning,validation,Item-kNN,Cosine; k=10; shrinkage=1,,,,490,0.0667,0.0314,0.0769,0.3062,,,,,No,,
+1,validation_tuning,validation,Item-kNN,Cosine; k=20; shrinkage=1,,,,490,0.0584,0.0304,0.0669,0.3361,,,,,No,,
+1,validation_tuning,validation,Item-kNN,Cosine; k=50; shrinkage=1,,,,490,0.0486,0.025,0.056,0.3621,,,,,No,,
+1,validation_tuning,validation,Item-kNN,Cosine; k=100; shrinkage=1,,,,490,0.0298,0.0148,0.0316,0.3572,,,,,No,,
+1,validation_tuning,validation,Item-kNN,Adjusted cosine; k=5; shrinkage=1,,,,490,0.0906,0.044,0.1044,0.1646,,,,,No,,
+1,validation_tuning,validation,Item-kNN,Adjusted cosine; k=10; shrinkage=1,,,,490,0.0935,0.0599,0.1149,0.172,,,,,No,,
+1,validation_tuning,validation,Item-kNN,Adjusted cosine; k=20; shrinkage=1,,,,490,0.0904,0.0493,0.1048,0.1901,,,,,No,,
+1,validation_tuning,validation,Item-kNN,Adjusted cosine; k=10; shrinkage=0,,,,490,0.0269,0.0231,0.0299,0.3374,,,,,No,,
+1,validation_tuning,validation,Item-kNN,Adjusted cosine; k=10; shrinkage=0.1,,,,490,0.0616,0.0404,0.0798,0.2951,,,,,No,,
+1,validation_tuning,validation,Item-kNN,Adjusted cosine; k=10; shrinkage=0.5,,,,490,0.0841,0.0536,0.1046,0.2019,,,,,No,,
+1,validation_tuning,validation,Item-kNN,Adjusted cosine; k=10; shrinkage=2,,,,490,0.099,0.0627,0.1216,0.1473,,,,,No,,
+1,validation_tuning,validation,Item-kNN,Adjusted cosine; k=10; shrinkage=5,,,,490,0.1031,0.0595,0.1229,0.129,,,,,Yes,,
+1,validation,validation,Most Popular (Positive),Variant,,,,Users,Precision@10,Recall@10,NDCG@10,Catalogue coverage,,,,,,,Notes
+1,validation,validation,Most Popular (All),All ratings,,,,490,0.1035,0.0442,0.117,0.0335,,,,,,,Global popularity ranking.
+2,validation_tuning,validation,Content-based,Year weight = 0.0,,,,490,0.0171,0.0039,0.0183,0.2418,,,,,No,,Genres only
+2,validation_tuning,validation,Content-based,Year weight = 0.5,,,,490,0.0153,0.0107,0.0188,0.3381,,,,,Yes,,Selected maximum NDCG
+2,validation_tuning,validation,Content-based,Year weight = 1.0,,,,490,0.0135,0.0064,0.016,0.3384,,,,,No,,
+2,validation_tuning,validation,User-kNN,Neighbours = 10,,,,490,0.032,0.0077,0.0358,0.2702,,,,,Yes,,Selected maximum NDCG
+2,validation_tuning,validation,User-kNN,Neighbours = 20,,,,490,0.0196,0.0044,0.0196,0.2807,,,,,No,,
+2,validation_tuning,validation,User-kNN,Neighbours = 50,,,,490,0.012,0.0043,0.0139,0.2843,,,,,No,,
+2,validation_tuning,validation,Hybrid,Alpha = 0.25,,,,490,0.08,0.0345,0.0893,0.0852,,,,,Yes,,Selected maximum NDCG
+2,validation_tuning,validation,Hybrid,Alpha = 0.50,,,,490,0.0667,0.0276,0.075,0.1164,,,,,No,,
+2,validation_tuning,validation,Hybrid,Alpha = 0.75,,,,490,0.0539,0.022,0.0633,0.1594,,,,,No,,
+2,disaggregated,test,Most Popular (All),<=147 ratings (494 users),Training user activity,Low,,494,,,0.2004,,,,,,,,Only NDCG@10 calculated in subgroup analysis
+2,disaggregated,test,Most Popular (All),>147 ratings (492 users),Training user activity,High,,492,,,0.1715,,,,,,,,Only NDCG@10 calculated in subgroup analysis
+2,disaggregated,test,Most Popular (Positive),<=147 ratings (494 users),Training user activity,Low,,494,,,0.2129,,,,,,,,Only NDCG@10 calculated in subgroup analysis
+2,disaggregated,test,Most Popular (Positive),>147 ratings (492 users),Training user activity,High,,492,,,0.1809,,,,,,,,Only NDCG@10 calculated in subgroup analysis
+2,disaggregated,test,Item-kNN,<=147 ratings (494 users),Training user activity,Low,,494,,,0.1856,,,,,,,,Only NDCG@10 calculated in subgroup analysis
+2,disaggregated,test,Item-kNN,>147 ratings (492 users),Training user activity,High,,492,,,0.1758,,,,,,,,Only NDCG@10 calculated in subgroup analysis
+2,disaggregated,test,Content-based,<=147 ratings (494 users),Training user activity,Low,,494,,,0.0292,,,,,,,,Only NDCG@10 calculated in subgroup analysis
+2,disaggregated,test,Content-based,>147 ratings (492 users),Training user activity,High,,492,,,0.0214,,,,,,,,Only NDCG@10 calculated in subgroup analysis
+2,disaggregated,test,User-kNN,<=147 ratings (494 users),Training user activity,Low,,494,,,0.0948,,,,,,,,Only NDCG@10 calculated in subgroup analysis
+2,disaggregated,test,User-kNN,>147 ratings (492 users),Training user activity,High,,492,,,0.041,,,,,,,,Only NDCG@10 calculated in subgroup analysis
+2,disaggregated,test,Hybrid,<=147 ratings (494 users),Training user activity,Low,,494,,,0.1537,,,,,,,,Only NDCG@10 calculated in subgroup analysis
+2,disaggregated,test,Hybrid,>147 ratings (492 users),Training user activity,High,,492,,,0.1235,,,,,,,,Only NDCG@10 calculated in subgroup analysis
+2,disaggregated,test,Most Popular (Positive),First half by median test timestamp; 752 users,Test period,Early,,752,,,0.1281,,,,,,,,Only NDCG@10 calculated; not same user set as late
+2,disaggregated,test,Most Popular (Positive),Second half by median test timestamp; 692 users,Test period,Late,,692,,,0.147,,,,,,,,Only NDCG@10 calculated; not same user set as early
+2,disaggregated,test,Item-kNN,First half by median test timestamp; 752 users,Test period,Early,,752,,,0.114,,,,,,,,Only NDCG@10 calculated; not same user set as late
+2,disaggregated,test,Item-kNN,Second half by median test timestamp; 692 users,Test period,Late,,692,,,0.1415,,,,,,,,Only NDCG@10 calculated; not same user set as early
+2,disaggregated,test,Hybrid,First half by median test timestamp; 752 users,Test period,Early,,752,,,0.0927,,,,,,,,Only NDCG@10 calculated; not same user set as late
+2,disaggregated,test,Hybrid,Second half by median test timestamp; 692 users,Test period,Late,,692,,,0.1013,,,,,,,,Only NDCG@10 calculated; not same user set as early
+2,sparsity,test,Most Popular (All),100% of train interactions,,,100,896,,,0.1821,,,,,,,42,896 common test users; only NDCG@10 recorded
+2,sparsity,test,Most Popular (All),50% of train interactions,,,50,896,,,0.1023,,,,,,,42,896 common test users; only NDCG@10 recorded
+2,sparsity,test,Most Popular (All),20% of train interactions,,,20,896,,,0.0791,,,,,,,42,896 common test users; only NDCG@10 recorded
+2,sparsity,test,Most Popular (Positive),100% of train interactions,,,100,896,,,0.1927,,,,,,,42,896 common test users; only NDCG@10 recorded
+2,sparsity,test,Most Popular (Positive),50% of train interactions,,,50,896,,,0.1108,,,,,,,42,896 common test users; only NDCG@10 recorded
+2,sparsity,test,Most Popular (Positive),20% of train interactions,,,20,896,,,0.0878,,,,,,,42,896 common test users; only NDCG@10 recorded
+2,sparsity,test,Item-kNN,100% of train interactions,,,100,896,,,0.1761,,,,,,,42,896 common test users; only NDCG@10 recorded
+2,sparsity,test,Item-kNN,50% of train interactions,,,50,896,,,0.1008,,,,,,,42,896 common test users; only NDCG@10 recorded
+2,sparsity,test,Item-kNN,20% of train interactions,,,20,896,,,0.0323,,,,,,,42,896 common test users; only NDCG@10 recorded
+2,sparsity,test,Content-based,100% of train interactions,,,100,896,,,0.024,,,,,,,42,896 common test users; only NDCG@10 recorded
+2,sparsity,test,Content-based,50% of train interactions,,,50,896,,,0.0216,,,,,,,42,896 common test users; only NDCG@10 recorded
+2,sparsity,test,Content-based,20% of train interactions,,,20,896,,,0.0219,,,,,,,42,896 common test users; only NDCG@10 recorded
+2,sparsity,test,User-kNN,100% of train interactions,,,100,896,,,0.0612,,,,,,,42,896 common test users; only NDCG@10 recorded
+2,sparsity,test,User-kNN,50% of train interactions,,,50,896,,,0.0714,,,,,,,42,896 common test users; only NDCG@10 recorded
+2,sparsity,test,User-kNN,20% of train interactions,,,20,896,,,0.0648,,,,,,,42,896 common test users; only NDCG@10 recorded
+2,sparsity,test,Hybrid,100% of train interactions,,,100,896,,,0.1336,,,,,,,42,896 common test users; only NDCG@10 recorded
+2,sparsity,test,Hybrid,50% of train interactions,,,50,896,,,0.0922,,,,,,,42,896 common test users; only NDCG@10 recorded
+2,sparsity,test,Hybrid,20% of train interactions,,,20,896,,,0.087,,,,,,,42,896 common test users; only NDCG@10 recorded
+2,paired_bootstrap,test,Most Popular (Positive) - Item-kNN,Paired mean difference in NDCG@10; positive-popularity minus item-kNN,,,,986,,,,,0.0053,0.0275,0.0162,,,42,95% paired bootstrap interval; 1000 resamples

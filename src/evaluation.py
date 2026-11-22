@@ -1,4 +1,4 @@
-
+import numpy as np
 import math
 
 
@@ -70,6 +70,7 @@ def evaluate_recommender(
 
     n_users = len(eligible_users)
 
+
     return {
         "users_evaluated": n_users,
         **{
@@ -77,4 +78,19 @@ def evaluate_recommender(
             for name, values in scores.items()
         },
         "coverage": len(all_recommended) / len(catalogue),
+        "per_user_ndcg": dict(zip(eligible_users, scores["ndcg@10"]))
     }
+
+
+def bootstrap_ci(user_scores, seed=42, n_samples=1000):
+    """Calculate a 95% bootstrap confidence interval."""
+
+    values = np.array(list(user_scores.values()))
+    rng = np.random.default_rng(seed)
+
+    averages = [
+        rng.choice(values, size=len(values), replace=True).mean()
+        for _ in range(n_samples)
+    ]
+
+    return np.percentile(averages, [2.5, 97.5])

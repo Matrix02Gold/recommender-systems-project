@@ -152,7 +152,7 @@ In the sparsity test, the NDCG@10 results were:
 
 These sparsity values use the same **896 eligible test users** at each training-data level, so they are slightly different from the main full-data test results.
 
-## Reproducibility and AI use
+## Reproducibility
 
 - The main train/validation/test split is chronological, with no random splitting.
 - The **random seed is 42** for training-data subsampling and bootstrap confidence intervals.
